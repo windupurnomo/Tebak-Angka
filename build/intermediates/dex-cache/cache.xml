@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/pre-dexed/release/internal_impl-23.4.0-daf0ce0147e6c1f7503b6a4f407b01c77ae0d400.jar" />
+    </item>
+    <item
+        jar="/home/windupurnomo/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/pre-dexed/release/support-annotations-23.4.0-778fe4186b0be65f7a086163d838e7b3e12340f7.jar" />
+    </item>
+    <item
+        jar="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/pre-dexed/release/classes-dae3004f1aa8c6d68daf04e407805b924945937b.jar" />
+    </item>
+    <item
+        jar="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/pre-dexed/release/classes-6ca93510e448cc179a16b099d7d7a094ca2a5a3c.jar" />
+    </item>
+    <item
+        jar="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/pre-dexed/release/classes-e50b240d64ebc8655c6b44f1f2b96d5fe64183a3.jar" />
+    </item>
+    <item
+        jar="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/windupurnomo/Documents/work/zcode/product/TebakAngka/app/build/intermediates/pre-dexed/release/classes-0525101c6e1900c3216e1208e04f14b7cb662237.jar" />
+    </item>
+
+</items>
