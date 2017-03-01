@@ -1,5 +1,6 @@
-package lemsaneg.go.id.tebakangka;
+package id.go.lemsaneg.tebakangka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout layoutNumbers;
     private final int MIN = 1;
     private final int MAX = 100;
+    private boolean isEvaluated = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,80 +50,70 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 1;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(1);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 2;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(2);
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 3;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(3);
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 4;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(4);
             }
         });
 
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 5;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(5);
             }
         });
 
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 6;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(6);
             }
         });
 
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 7;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(7);;
             }
         });
 
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 8;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(8);
             }
         });
 
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 9;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(9);
             }
         });
 
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tebakanUser = tebakanUser * 10 + 0;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                setNumber(0);
             }
         });
 
@@ -129,24 +121,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tebakanUser = 0;
-                txtNumber.setText(String.valueOf(tebakanUser));
+                txtNumber.setText("?");
+                txtMessage.setText("Tebak Sebuah Angka antara " + MIN + " dan " + MAX);
             }
         });
 
         btnV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (tebakanUser > secretNumber){
+                isEvaluated = true;
+                if (tebakanUser > secretNumber) {
                     txtMessage.setText("Tebakan Anda terlalu BESAR");
-                }else if (tebakanUser < secretNumber){
+                } else if (tebakanUser < secretNumber) {
                     txtMessage.setText("Tebakan Anda terlalu KECIL");
-                }else{
-                    txtMessage.setText("Yeahhhh... Tebakan Anda BENAR");
-                    txtNumber.setText("0");
+                } else {
+                    txtMessage.setText("Hore! Tebakan Anda BENAR, " + secretNumber);
+                    txtNumber.setText("\\0/");
                     btnTryAgain.setVisibility(View.VISIBLE);
                     layoutNumbers.setVisibility(View.GONE);
                 }
-                tebakanUser = 0;
             }
         });
 
@@ -159,15 +152,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void createSecretNumber(){
+    private void setNumber(int n){
+        if (isEvaluated){
+            tebakanUser = n;
+            isEvaluated = false;
+        }else{
+            int temp = tebakanUser * 10 + n;
+            if (temp > MAX) return;
+            tebakanUser = temp;
+        }
+        txtNumber.setText(String.valueOf(tebakanUser));
+    }
+
+    private void createSecretNumber() {
         Random random = new Random();
         secretNumber = random.nextInt((MAX - MIN) + 1) + 1;
     }
 
-    private void initGame(){
+    private void initGame() {
         layoutNumbers.setVisibility(View.VISIBLE);
         btnTryAgain.setVisibility(View.GONE);
         createSecretNumber();
-        txtMessage.setText("");
+        txtNumber.setText("?");
+        txtMessage.setText("Tebak Sebuah Angka antara " + MIN + " dan " + MAX);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, UserActivity.class);
+        startActivity(intent);
     }
 }

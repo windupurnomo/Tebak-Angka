@@ -1,4 +1,4 @@
-package lemsaneg.go.id.tebakangka;
+package id.go.lemsaneg.tebakangka;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

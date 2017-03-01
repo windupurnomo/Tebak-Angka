@@ -1,4 +1,4 @@
-package lemsaneg.go.id.tebakangka;
+package id.go.lemsaneg.tebakangka;
 
 import org.junit.Test;
 
