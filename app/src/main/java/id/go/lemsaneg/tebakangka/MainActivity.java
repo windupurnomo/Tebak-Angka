@@ -17,15 +17,16 @@ public class MainActivity extends AppCompatActivity {
     private int tebakanUser = 0, secretNumber;
     private Button btnTryAgain;
     private LinearLayout layoutNumbers;
-    private final int MIN = 1;
-    private final int MAX = 100;
+    private final int MIN = 20;
+    private final int MAX = 90;
     private boolean isEvaluated = true;
+    private int attempt;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createSecretNumber();
 
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
@@ -130,12 +131,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 isEvaluated = true;
+                attempt++;
                 if (tebakanUser > secretNumber) {
                     txtMessage.setText("Tebakan Anda terlalu BESAR");
                 } else if (tebakanUser < secretNumber) {
                     txtMessage.setText("Tebakan Anda terlalu KECIL");
                 } else {
-                    txtMessage.setText("Hore! Tebakan Anda BENAR, " + secretNumber);
+                    score = 100 - (attempt-1)*10;
+                    score = score < 0 ? 0 : score;
+                    txtMessage.setText("Hore! Tebakan Anda BENAR, " + secretNumber + "Score Anda: " + score);
                     txtNumber.setText("\\0/");
                     btnTryAgain.setVisibility(View.VISIBLE);
                     layoutNumbers.setVisibility(View.GONE);
@@ -166,10 +170,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void createSecretNumber() {
         Random random = new Random();
-        secretNumber = random.nextInt((MAX - MIN) + 1) + 1;
+        secretNumber = random.nextInt((MAX - MIN) + 1) + MIN;
     }
 
     private void initGame() {
+        score = 0;
+        attempt = 0;
         layoutNumbers.setVisibility(View.VISIBLE);
         btnTryAgain.setVisibility(View.GONE);
         createSecretNumber();
@@ -181,5 +187,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, UserActivity.class);
         startActivity(intent);
+        finish();
     }
 }
